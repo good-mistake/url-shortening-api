@@ -46,6 +46,7 @@ function App() {
         { originalUrl: url, shortUrl: newShortenedUrl },
       ]);
       setCopy("");
+      setError(false);
     } catch (error) {
       setError(true);
       console.log("Error shortening URL:", error.message);
