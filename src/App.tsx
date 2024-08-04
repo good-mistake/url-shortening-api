@@ -33,10 +33,11 @@ function App() {
     }
     setInputError(false);
     try {
-      const response = await axios.post("https://cleanuri.com/api/v1/shorten", {
-        url,
-      });
-      const newShortenedUrl: string = response.data.result_url;
+      const response = await axios.get(
+        `https://tinyurl.com/api-create.php?url=${encodeURIComponent(url)}`
+      );
+
+      const newShortenedUrl: string = response.data;
       setShortenedUrl(newShortenedUrl);
       setUrlList((prevList) => [
         ...prevList,
@@ -45,7 +46,7 @@ function App() {
       setCopy("");
     } catch (error) {
       setError(true);
-      console.log(error.message);
+      console.log("Error shortening URL:", error.message);
     }
   };
   const modifyDisplayUrl = (shortUrl: string | null): string => {
