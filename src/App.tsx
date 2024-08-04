@@ -76,8 +76,8 @@ function App() {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
-  const cut = (url: string): string => {
-    return url.length > 28 ? `${url.slice(0, 28)}...` : url;
+  const cut = (url: string, num: number): string => {
+    return url.length > num ? `${url.slice(0, num)}...` : url;
   };
   return (
     <div className="App">
@@ -196,9 +196,9 @@ function App() {
                   {urlList?.map((item, index) => (
                     <li key={index}>
                       {windowWidth > 768 ? (
-                        <p>{item.originalUrl}</p>
+                        <p>{cut(item.originalUrl, 50)}</p>
                       ) : (
-                        <p>{cut(item.originalUrl)}</p>
+                        <p>{cut(item.originalUrl, 28)}</p>
                       )}
                       <div>
                         <a
