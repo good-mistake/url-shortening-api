@@ -33,15 +33,10 @@ function App() {
     }
     setInputError(false);
     try {
-      const response = await fetch("https://cleanuri.com/api/v1/shorten", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ url }),
+      const response = await axios.post("https://cleanuri.com/api/v1/shorten", {
+        url,
       });
-      const data = await response.json();
-      const newShortenedUrl: string = data.result_url;
+      const newShortenedUrl: string = response.data.result_url;
       setShortenedUrl(newShortenedUrl);
       setUrlList((prevList) => [
         ...prevList,
