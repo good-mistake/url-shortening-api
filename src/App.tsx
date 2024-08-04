@@ -8,6 +8,8 @@ import { ReactComponent as Custom } from "./images/icon-fully-customizable.svg";
 import { ReactComponent as Detail } from "./images/icon-detailed-records.svg";
 import { ReactComponent as Brand } from "./images/icon-brand-recognition.svg";
 import { ReactComponent as Logo } from "./images/logo.svg";
+import axios from "axios";
+
 interface UrlItem {
   originalUrl: string;
   shortUrl: string;
@@ -31,7 +33,7 @@ function App() {
     }
     setInputError(false);
     try {
-      const response = await fetch("./api/shorten", {
+      const response = await fetch("https://cleanuri.com/api/v1/shorten", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
