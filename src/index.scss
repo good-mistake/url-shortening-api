@@ -1,0 +1,722 @@
+@import url("https://fonts.googleapis.com/css2?family=Commissioner:wght@100..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Red+Hat+Text:ital,wght@0,300..700;1,300..700&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
+$wei700: 700;
+$wei500: 500;
+$white: #ffffff;
+$gray: #a2a2a4;
+$bg: #f0f1f6;
+$bgFooter: #232027;
+$hover: #313036;
+$btn: #2eced1;
+$btnHover: #9be2e1;
+$flex: flex;
+$center: center;
+$cursor: pointer;
+$F14: 14px;
+$F16: 16px;
+$F1r: 1rem;
+$F12px: 12px;
+$F18px: 18px;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 1) 810px,
+    rgba(240, 241, 246, 255) 100px
+  );
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+ul,
+h2,
+h3,
+h4,
+h1,
+h5,
+h6,
+p {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.App {
+  margin-top: 2.5rem;
+  .container {
+    display: $flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  button {
+    cursor: $cursor;
+    border: unset;
+  }
+  header {
+    width: 100%;
+    padding: 0 10rem;
+    margin: 0;
+    display: $flex;
+    justify-content: space-between;
+    align-items: $center;
+
+    nav {
+      display: $flex;
+      align-items: flex-start;
+      ul {
+        display: $flex;
+        margin-left: 1rem;
+        li {
+          margin-left: 2rem;
+          color: $gray;
+          font-weight: $wei500;
+          cursor: $cursor;
+        }
+        :hover {
+          color: $hover;
+        }
+      }
+    }
+
+    .login {
+      color: $gray;
+      background-color: $white;
+      font-weight: $wei700;
+      margin-right: 1.25rem;
+      font-size: $F16;
+      padding: $F1r;
+    }
+    .login:hover {
+      color: $hover;
+    }
+    .signUp {
+      font-size: $F16;
+      background-color: $btn;
+      color: $white;
+      padding: 0.65rem 1rem;
+      border-radius: 20px;
+      font-weight: $wei700;
+    }
+    .signUp:hover {
+      background-color: $btnHover;
+    }
+  }
+  main {
+    width: 100%;
+    overflow: hidden;
+    margin: 3rem 0;
+    .description {
+      padding: 0 -0rem 0 10rem;
+      display: $flex;
+      justify-content: left;
+      align-items: $center;
+
+      h1 {
+        font-size: 4rem;
+        font-weight: $wei700;
+        color: $hover;
+        line-height: 5rem;
+        word-wrap: break-word;
+      }
+      p {
+        margin: 1rem 0 0 0;
+        color: $gray;
+        font-size: 1.55rem;
+        font-weight: $wei500;
+        word-wrap: break-word;
+      }
+
+      > div:nth-child(2) {
+        margin-right: -7rem;
+      }
+      button {
+        padding: 1rem 2.5rem;
+        background-color: $btn;
+        color: $white;
+        border-radius: 30px;
+        font-size: 1.25rem;
+        font-weight: $wei700;
+        margin-top: 3rem;
+      }
+      button:hover {
+        background-color: $btnHover;
+      }
+    }
+    .inputSsection {
+      padding: 0 10rem;
+
+      margin-top: 6rem;
+      .userInput {
+        display: $flex;
+        justify-content: space-evenly;
+        align-items: $center;
+        background: url("./images/bg-shorten-desktop.svg");
+        background-repeat: no-repeat;
+        background-color: #3a3053;
+        background-size: cover;
+        padding: 3.25rem 0;
+        width: 100%;
+        border-radius: 10px;
+        position: relative;
+
+        &.inputErr::before,
+        &.linkErr::before {
+          content: "Please add a link";
+          color: #d56c83;
+          position: absolute;
+          top: 125px;
+          left: 35px;
+          font-size: 0.875rem;
+          white-space: nowrap;
+          padding: 2px;
+          margin-left: 10px;
+        }
+        &.linkErr::before {
+          content: "Please add a valid link";
+        }
+        input {
+          width: 76%;
+          border-radius: 10px;
+          padding: 1.4rem 2rem;
+          font-size: 1rem;
+          box-sizing: border-box;
+
+          &.inputErr,
+          &.linkErr {
+            border: 3px solid #d56c83;
+          }
+
+          &::placeholder {
+            font-size: 1rem;
+          }
+        }
+
+        button {
+          padding: 1.4rem 0;
+          width: 15%;
+          border-radius: 10px;
+          border: unset;
+          background-color: $btn;
+          color: $white;
+          font-size: $F16;
+          font-weight: $wei700;
+        }
+      }
+
+      ul {
+        margin-top: 1.5rem;
+        li {
+          display: $flex;
+          justify-content: space-between;
+          background-color: $white;
+          align-items: $center;
+          padding: 0.75rem 1.25rem;
+          margin-bottom: $F14;
+          box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px,
+            rgba(17, 17, 26, 0.1) 0px 0px 8px;
+          border-radius: 10px;
+
+          button {
+            background-color: $btn;
+            color: $white;
+            padding: 0.65rem 0rem;
+            width: 90px;
+            font-size: $F14;
+            font-weight: $wei700;
+            border-radius: 6px;
+            margin-left: 2rem;
+          }
+          a {
+            text-decoration: none;
+            color: #43c4bf;
+            font-size: $F18px;
+          }
+          p {
+            color: $hover;
+            font-weight: $wei500;
+          }
+        }
+      }
+    }
+    .detailSection {
+      margin-top: 6rem;
+      padding: 0 10rem;
+
+      > div {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        h3 {
+          font-size: 2rem;
+          color: $hover;
+        }
+        p {
+          color: $gray;
+          font-size: 1.1rem;
+          font-weight: $wei500;
+          margin-top: 1rem;
+          width: 500px;
+        }
+      }
+      > ul {
+        display: flex;
+        align-items: center;
+        li {
+          background-color: $white;
+          margin-right: 1.75rem;
+          padding: 1.5rem 2.5rem;
+          border-radius: 5px;
+          position: relative;
+          > div {
+            background-color: #3a3054;
+            padding: 1rem 1.25rem;
+            border-radius: 50%;
+            aspect-ratio: 2/2;
+            position: absolute;
+            top: -40px;
+          }
+          svg {
+            margin-top: 4px;
+          }
+          h4 {
+            font-weight: $wei700;
+            color: $hover;
+            font-size: 1.25rem;
+            margin-top: 2.5rem;
+          }
+          p {
+            color: $gray;
+            margin-top: $F1r;
+            font-size: 14.75px;
+          }
+        }
+        li:nth-child(2) {
+          margin-top: 6rem;
+          position: relative;
+          display: flex;
+          align-items: $center;
+          justify-content: $center;
+          flex-direction: column;
+          &::after {
+            content: "";
+            position: absolute;
+            width: 450px;
+            height: 8px;
+            background-color: $btn;
+            top: 100px;
+            z-index: -1;
+          }
+        }
+        li:nth-child(3) {
+          margin-top: 12rem;
+        }
+      }
+    }
+  }
+  footer {
+    background-color: $bgFooter;
+
+    .start {
+      background: url("./images//bg-boost-desktop.svg");
+      background-color: #3a3053;
+      color: $white;
+      display: $flex;
+      background-repeat: no-repeat;
+      background-size: cover;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      padding: 2.75rem 0;
+      h2 {
+        font-size: 2.5rem;
+        margin: 1rem 0 0.25rem 0;
+      }
+      button {
+        margin-top: 0.25rem;
+        padding: 1rem 0;
+        margin: 1rem;
+
+        width: 180px;
+        background-color: $btn;
+        color: $white;
+        font-size: 1.15rem;
+        font-weight: $wei700;
+        border-radius: 50px;
+        &:hover {
+          background-color: $btnHover;
+        }
+      }
+    }
+    > div {
+      width: 100%;
+      padding: 4rem 10rem;
+
+      display: flex;
+      margin: 0 auto;
+      color: $white;
+      justify-content: space-between;
+      h3 {
+        margin-right: 5rem;
+        svg {
+          .logo {
+            fill: $white;
+          }
+        }
+      }
+      .features,
+      .resources,
+      .about {
+        margin: 0rem 1rem;
+        h4 {
+          font-size: $F14;
+          font-weight: $wei700;
+          margin-bottom: 1.2rem;
+        }
+        li {
+          margin-bottom: 0.75rem;
+          font-size: $F14;
+          color: $gray;
+          &:hover {
+            cursor: $cursor;
+            color: $btn;
+          }
+        }
+      }
+      .logos ul {
+        display: flex;
+        li {
+          &:not(:last-child) {
+            margin-right: 1.5rem;
+          }
+          &:hover {
+            cursor: $cursor;
+
+            .socialMedia {
+              fill: $btn;
+            }
+          }
+          &:nth-child(1) {
+            margin-left: 1rem;
+          }
+        }
+      }
+    }
+  }
+}
+@media (max-width: 1180px) {
+  body {
+    background: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 1) 820px,
+      rgba(240, 241, 246, 255) 100px
+    );
+  }
+  .App {
+    header {
+      padding: 0 4rem;
+      nav {
+        align-items: center;
+      }
+    }
+    main {
+      .description {
+        padding: 0 0rem 0 4rem;
+        h1 {
+          font-size: 2.5rem;
+
+          line-height: 3rem;
+        }
+        p {
+          font-size: 1rem;
+        }
+
+        > div:nth-child(2) {
+          margin-right: 45%;
+          width: 10%;
+          height: 500px;
+        }
+      }
+      .detailSection {
+        padding: 0 4rem;
+
+        > ul li {
+          padding: 1rem 1.5rem;
+          border-radius: 10px;
+          h4 {
+            font-size: 1rem;
+          }
+          p {
+            font-size: 13px;
+          }
+        }
+      }
+      .inputSsection {
+        padding: 0 4rem;
+        ul li {
+          a {
+            font-size: $F16;
+          }
+          p {
+            font-size: 13px;
+          }
+        }
+      }
+    }
+    footer {
+      > div {
+        padding: 4rem 4rem;
+      }
+      > div .features li,
+      > div .resources li,
+      > div .about li {
+        font-size: 13px;
+      }
+    }
+  }
+}
+@media (max-width: 768px) {
+  body {
+    background: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 1) 1050px,
+      rgba(240, 241, 246, 255) 100px
+    );
+  }
+  .App {
+    header {
+      padding: 0 1rem;
+
+      .mobileNav {
+        justify-content: space-between;
+
+        width: 100%;
+        position: relative;
+        ul {
+          flex-direction: column;
+          position: absolute;
+          top: 80px;
+          background-color: #3a3053;
+          border-radius: 15px;
+          padding: 0 1rem;
+          align-items: center;
+          width: 100%;
+          margin: 0;
+
+          li {
+            color: $white;
+            width: 92%;
+            padding-bottom: 1.5rem;
+            margin-left: 0;
+            text-align: center;
+            &:nth-child(1) {
+              margin-top: 2rem;
+            }
+            &:nth-child(3) {
+              border-bottom: 1px solid #8c82a3;
+              padding-bottom: 1.5rem;
+            }
+            .login {
+              width: 100%;
+              background-color: inherit;
+              color: $white;
+            }
+
+            .signUp {
+              width: 100%;
+              padding: 1rem 0;
+            }
+          }
+        }
+      }
+    }
+    main {
+      .description {
+        padding: 0 0rem 0 1rem;
+
+        flex-direction: column-reverse;
+        > div:nth-child(1) {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+        }
+        > div:nth-child(2) {
+          margin-right: 55%;
+          width: 1%;
+          height: 500px;
+        }
+      }
+      .inputSsection {
+        padding: 0 1rem;
+        .userInput {
+          flex-direction: column;
+          padding: 1rem 0;
+          background: url("./images/bg-shorten-mobile.svg");
+          background-color: #3a3053;
+          background-repeat: no-repeat;
+          background-position: right;
+          &.inputErr::before,
+          &.linkErr::before {
+            content: "Please add a link";
+            font-style: italic;
+            top: 72px;
+            left: 20px;
+            font-size: 12px;
+          }
+          input {
+            width: 90%;
+            font-size: $F14;
+            padding: 1rem;
+            border-radius: 5px;
+
+            &::placeholder {
+              font-size: $F14;
+            }
+          }
+          button {
+            width: 90%;
+            margin-top: 2rem;
+            padding: 1rem;
+            border-radius: 5px;
+          }
+        }
+        ul li {
+          flex-direction: column;
+          p {
+            width: 100%;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgb(218, 217, 217);
+            word-break: break-all;
+          }
+          > div {
+            width: 100%;
+
+            margin-top: 0.5rem;
+            display: flex;
+            flex-direction: column;
+            button {
+              width: 100%;
+              margin: 0;
+              margin-top: 0.5rem;
+              padding: 0.75rem 0;
+            }
+          }
+        }
+      }
+      .detailSection {
+        padding: 0 1rem;
+        > div {
+          margin-bottom: 6rem;
+          p {
+            width: auto;
+          }
+        }
+        > ul {
+          flex-direction: column;
+          li {
+            width: 100%;
+            margin-right: 0;
+            text-align: center;
+            display: $flex;
+            align-items: $center;
+            justify-content: $center;
+            flex-direction: column;
+            padding: 1rem 1.5rem 1.5rem;
+            &:nth-child(2) {
+              position: relative;
+              margin-top: 5rem;
+
+              &::after {
+                transform: rotate(90deg);
+              }
+            }
+            &:nth-child(3) {
+              margin-top: 5rem;
+            }
+          }
+        }
+      }
+    }
+    footer {
+      .start {
+        background-image: url("./images/bg-boost-mobile.svg");
+        background-position: center;
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+      }
+      > div {
+        padding: 4rem 1rem;
+        flex-direction: column;
+        align-items: $center;
+        h3 {
+          margin-bottom: 1.5rem;
+
+          margin-right: 0;
+        }
+        .features,
+        .resources,
+        .about {
+          margin: 0;
+          text-align: center;
+          margin-bottom: 1.5rem;
+        }
+        .logos ul li:nth-child(1) {
+          margin-left: 0rem;
+        }
+      }
+    }
+  }
+}
+@media (max-width: 400px) {
+  body {
+    background: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 1) 1115px,
+      rgba(240, 241, 246, 255) 100px
+    );
+  }
+  .App {
+    main {
+      .description {
+        > div:nth-child(2) {
+          margin-bottom: 1rem;
+
+          margin-right: 0%;
+          width: 100%;
+        }
+      }
+      .inputSsection ul li > div .copied {
+        background-color: #3a3053;
+      }
+      .detailSection {
+        > div {
+          h3 {
+            font-size: 1.65rem;
+          }
+          p {
+            font-size: $F16;
+          }
+        }
+      }
+    }
+    footer {
+      .start {
+        h2 {
+          font-size: 1.5rem;
+          margin: 1rem 0 0.25rem 0;
+        }
+        button {
+          font-size: 1rem;
+          width: 160px;
+        }
+      }
+    }
+  }
+}
