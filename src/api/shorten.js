@@ -5,7 +5,12 @@ export default async function handler(req, res) {
     try {
       const response = await axios.post(
         "https://cleanuri.com/api/v1/shorten",
-        req.body
+        { url: req.body.url },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
       );
       res.status(200).json(response.data);
     } catch (error) {
