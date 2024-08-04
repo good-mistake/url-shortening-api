@@ -32,9 +32,11 @@ function App() {
       return;
     }
     setInputError(false);
+    const encodedUrl = encodeURIComponent(url);
+
     try {
       const response = await axios.get(
-        `https://tinyurl.com/api-create.php?url=${encodeURIComponent(url)}`
+        `https://tinyurl.com/api-create.php?url=${encodedUrl}`
       );
 
       const newShortenedUrl: string = response.data;
